@@ -6,4 +6,10 @@
 #         self.right = right
 class Solution(object):
     def isSameTree(self, p, q):
-        return str(p) == str(q)
+        if p is None and q is None:
+            return True
+        if p is None and q is not None or q is None and p is not None:
+            return False
+        if p.val == q.val:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right,q.right)
+        return False
