@@ -17,12 +17,10 @@ class Solution(object):
         while q:
             u = q.popleft()
             for v in adj[u]:
-                prereq[v] |= prereq[u]  # Merge u's prerequisites into v's
+                prereq[v] |= prereq[u]  
                 in_degree[v] -= 1
                 if in_degree[v] == 0:
                     q.append(v)
-        
-        # Answer queries using bitmask checks
         ans = []
         for u, v in queries:
             ans.append((prereq[v] & (1 << u)) != 0)
