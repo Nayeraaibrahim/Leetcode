@@ -5,7 +5,7 @@ class Solution(object):
         for i in range(len(nums)):
             for j in range(i+1,len(nums)):
                 m = nums[i]*nums[j]
-                c += 8*a[m]
+                c += a[m]
                 a[m] +=1
-        return c
+        return c*8
         
